@@ -1,0 +1,32 @@
+{% extends 'common.html' %}
+{% block menu %}
+    {% include 'student_home_menu.html' %}
+{% endblock %}
+{% block main %}
+    {% load static %}
+    <form method="post">
+    {% csrf_token %}
+    <table align="center" border="0" width="700" >
+        <tr>
+            <th rowspan="11">
+                <img src="{% static 'images/enrol.png' %}">
+            </th>
+        </tr>
+        <tr>
+            <th colspan="2" style="font-size: 28px;padding: 10px;background: darkmagenta;color: #c4fc05">
+                Student Course Enrollment
+            </th>
+        </tr>
+        <tr>
+             <th style="text-align: left;color:darkred;background: #1cffc7">
+                {{ form }}
+             </th>
+        </tr>
+        <tr>
+            <th colspan="2" style="text-align: center;background-color: #70eeee">
+                <button type="submit" class="btn btn-outline-danger">Enroll</button>
+            </th>
+        </tr>
+    </table>
+    </form>
+{% endblock %}

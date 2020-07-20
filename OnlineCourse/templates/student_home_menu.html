@@ -1,0 +1,44 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-lite " style="background: khaki">
+    <a class="nav-link" href="{% url 'student_home' %}">Student Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'course_enroll' %}">Enroll New Course </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'course_enroll_list' %}">Enrolled Courses</a>
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'Studentlogin' %}">Logout</a>
+      </li>
+        </li>
+         <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+        <li class="nav-item">
+        <a class="nav-link " href="https://www.facebook.com/swayammoocs">
+            <img src="{% static 'images/facebook.png' %}">
+        </a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link " href="https://twitter.com/SWAYAMMHRD">
+            <img src="{% static 'images/twitter.png' %}">
+        </a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link " href="https://swayam.gov.in">
+            <img src="{% static 'images/gp.png' %}">
+        </a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link " href="https://play.google.com/store/apps/details?id=in.gov.swayam.app"> Download App
+            <img src="{% static 'images/playstore.png' %}">
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,42 @@
+{% extends 'common.html' %}
+{% block menu %}
+    {% include 'stdent_menu.html' %}
+{% endblock %}
+{% block main %}
+   {% load static %}
+    <style>
+    .srl{
+        text-align: center;font-size: 19px;background-color: #6ba82f;font-family: cursive;padding: 6px;
+    }
+    .sld{
+        text-align: center;font-family: "Times New Roman";color: #ef8946;background-color: #f1eaaa;font-size:
+            15px;width: 150px;padding: 9px;
+    }
+    </style>
+    <table align="center"  border="2">
+    <tr >
+        <th colspan="6" style="text-align: center;color:white;background-color: #025e31;font-size: 30px;padding: 8px">
+            STUDENT DETAILS
+        </th>
+    </tr>
+    <tr>
+        <th class="srl">SERIAL NO</th>
+        <th class="srl">STUDENT NAME</th>
+        <th class="srl">CONTACT NO</th>
+        <th class="srl">EMAIL ID</th>
+        <th class="srl">USER ID</th>
+        <th class="srl">PASSWORD</th>
+
+    </tr>
+    {% for y in sdata %}
+        <tr>
+        <th class="sld">{{ y.regno }}</th>
+        <th class="sld">{{ y.Name }}</th>
+        <th class="sld">{{ y.contact }}</th>
+        <th class="sld">{{ y.email }}</th>
+        <th class="sld">{{ y.user }}</th>
+        <th class="sld">{{ y.pas }}</th>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

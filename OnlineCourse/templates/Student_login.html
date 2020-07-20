@@ -1,0 +1,47 @@
+{% extends 'common.html' %}
+
+{% block menu %}
+    {% include 'stdent_menu.html' %}
+{% endblock %}
+{% block main %}
+{% load static %}
+    <form action="{% url 'studentloginhome' %}" method="post">
+    {% csrf_token %}
+    <table align="center"width="700">
+        <tr>
+            <th rowspan="6">
+                <img src="{% static 'images/login.png' %}"width="300"height="350">
+            </th>
+        </tr>
+        <tr>
+            <th style="font-family:'Broadway';font-size: 26px;color:#a80438;padding:7px;text-align: center;background-color: #98e26f">
+                STUDENT LOGIN
+            </th>
+        </tr>
+        <tr>
+            <th style="text-align: center;padding:4px;background:lavender;">
+                <input type="text" placeholder="UserID" name="use" required>
+            </th>
+        </tr>
+        <tr>
+            <th style="text-align: center;padding: 4px;background:lavender;">
+                <input type="password" placeholder="Password" name="psw" required>
+            </th>
+        </tr>
+        <tr>
+            <th style="text-align: center;padding:5px;background:lavender;">
+               <button type="submit" class="btn btn-outline-primary">Login</button>
+            </th>
+        </tr>
+        {% for y in messages %}
+        <tr>
+            <th style=" text-align: center;background:#f10404;color:#ffffff;font-size:18px;font-family:Rockwell">
+                {{ y }}
+            </th>
+        </tr>
+        {% endfor %}
+
+        </tr>
+    </table>
+    </form>
+{% endblock %}

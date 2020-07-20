@@ -1,0 +1,57 @@
+{% extends 'common.html' %}
+{% block menu %}
+    {% include 'student_home_menu.html' %}
+{% endblock %}
+{% block main %}
+    {% load static %}
+    <style>
+    .ecl{
+        text-align: center;width: 200px;color:white;background-color: darkblue;padding: 2px;font-size: 17px;
+    }
+    .ecld{
+        text-align: center;color: #842323;background: #70eeee;padding: 7px;font-size: 14px;
+    }
+    </style>
+    <table align="center"border="2">
+    <tr>
+        <th colspan="11" style="text-align: center;color:black;background-color: lightseagreen;
+              padding: 7px;font-size: 25px;font-family: 'Adobe Garamond Pro'">
+            ENROLLED COURSES LIST
+        </th>
+    </tr>
+    <tr>
+        <th class="ecl"> Serial No</th>
+        <th class="ecl"> Course Name</th>
+        <th class="ecl"> Faculty</th>
+        <th class="ecl">Starting Date</th>
+        <th class="ecl"> Schedule Time</th>
+        <th class="ecl"> Student Name</th>
+        <th class="ecl"> Student Contact</th>
+        <th class="ecl"> Enroll Status</th>
+        <th class="ecl">Update Enroll</th>
+        <th class="ecl"> Delete Enroll</th>
+    </tr>
+    {% for z in object_list %}
+        <tr>
+            <th class="ecld">{{ z.Register_No }}</th>
+            <th class="ecld">{{ z.Course_Name }}</th>
+            <th class="ecld">{{ z.Faculty_Name }}</th>
+            <th class="ecld">{{ z.date }}</th>
+            <th class="ecld">{{ z.timing }}</th>
+            <th class="ecld">{{ z.Student_Name }}</th>
+            <th class="ecld">{{ z.Student_Contact }}</th>
+            <th class="ecld">{{ z.Enroll_status }}</th>
+            <th class="ecld">
+                <a href="{% url 'update_enrole' z.Register_No %}">
+                <img src="{% static 'images/loop.png' %}">
+                </a>
+            </th>
+            <th class="ecld">
+                 <a href="{% url 'delete_enrole' z.Register_No %}">
+                <img src="{% static 'images/traess.png' %}">
+                 </a>
+            </th>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

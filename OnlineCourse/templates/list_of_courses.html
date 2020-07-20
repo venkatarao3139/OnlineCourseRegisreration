@@ -1,0 +1,56 @@
+{% extends 'common.html' %}
+
+{% block menu %}
+    {% include 'admin_menu.html' %}
+{% endblock %}
+{% block main %}
+{% load static %}
+    <style>
+    .cd{
+        text-align: center;color: #842323;background: #04bfbf;padding: 7px;
+        font-family: fantasy;font-size: 20px;width: available;
+    }
+    .crd{
+        text-align: center;color: #2f035a;background-color: #82eaa0;padding: 9px ;
+    }
+    </style>
+    <table align="center" border="2" bgcolor="#fff8dc"width="1000" >
+  <tr>
+      <th colspan="9" style="text-align: center;font-family: 'Agency FB';color: crimson;font-size: 30px;background-color: #07f14a;padding: 6px">
+          LIST OF COURSES
+      </th>
+  </tr>
+    <tr>
+        <th class="cd">SERIAL NO</th>
+        <th class="cd">COURSE NAME</th>
+        <th class="cd">FACULTY NAME</th>
+        <th class="cd">DATE</th>
+        <th class="cd">TIME</th>
+        <th class="cd">TUITION FEE</th>
+        <th class="cd">DURATION</th>
+        <th style="text-align: center;color: #842323;background-color: #075df1;font-family: fantasy ">UPDATE</th>
+        <th style="text-align: center;color: #842323;background-color: #075df1;font-family: fantasy ">DELETE</th>
+    </tr>
+        {% for x in data %}
+         <tr>
+             <th class="crd">{{ x.regn}}</th>
+             <th class="crd">{{ x.cname}}</th>
+             <th class="crd">{{ x.Faculty}}</th>
+             <th class="crd">{{ x.Date}}</th>
+             <th class="crd">{{ x.Time}}</th>
+             <th class="crd">{{ x.Fee }}</th>
+            <th class="crd">{{ x.Duration }}</th>
+            <th style="text-align: center;background-color: #c6b30b;padding: 6px">
+                <a href="{% url 'update' x.regn %}">
+                <img src="{% static 'images/update.png' %}">
+                </a>
+            </th>
+            <th style="text-align: center;background-color: #c6b30b;padding: 6px">
+                <a href="{% url 'remove' x.regn%}">
+                <img src="{% static 'images/trash-can.png' %}">
+                </a>
+            </th>
+         </tr>
+         {% endfor %}
+</table>
+{% endblock %}
